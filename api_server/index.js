@@ -118,7 +118,6 @@ passport.use(
               return done(err, user);
             });
           } else {
-            console.log("idhr");
             return done(err, user);
           }
         }

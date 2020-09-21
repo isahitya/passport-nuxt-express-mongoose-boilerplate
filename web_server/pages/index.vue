@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>Homepage</h1>
+    <h1>Welcome {{ username }}</h1>
     <button class="logout-button" @click="logoutButtonClicked()">Logout</button>
   </div>
 </template>
@@ -12,10 +13,16 @@ export default {
       this.$nuxt.$router.replace({ path: "/login" });
     }
   },
-  middleware: "homepageMiddleware",
+  //middleware: "homepageMiddleware",
   methods: {
     logoutButtonClicked() {
       this.$auth.logout();
+      this.$nuxt.$router.replace({ path: "/login" });
+    }
+  },
+  computed: {
+    username() {
+      return this.$auth.user ? this.$auth.user.username : "";
     }
   }
 };
