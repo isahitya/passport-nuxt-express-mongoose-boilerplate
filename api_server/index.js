@@ -94,7 +94,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: SERVER_BASE_URL + "/auth/google/launchpad", //Callback to a service on this server
+      callbackURL:
+        SERVER_BASE_URL + process.env.GOOGLE_CALLBACK_SERVICE_MAPPING, //Callback to a service on this server
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     function (accessToken, refreshToken, profile, done) {
@@ -132,7 +133,7 @@ app.get(
 );
 
 app.get(
-  "/auth/google/launchpad",
+  process.env.GOOGLE_CALLBACK_SERVICE_MAPPING,
   passport.authenticate("google", { failureRedirect: "/login" }),
   function (req, res) {
     // Successful authentication, redirect home.

@@ -43,7 +43,6 @@ export default {
   },
   methods: {
     loginButtonClicked() {
-      console.log(this.username);
       this.$auth
         .loginWith("local", {
           data: {

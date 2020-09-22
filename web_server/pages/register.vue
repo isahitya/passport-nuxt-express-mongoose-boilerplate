@@ -28,7 +28,6 @@
 export default {
   data() {
     return {
-      showRegisterForm: false,
       username: "",
       password: ""
     };
