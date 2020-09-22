@@ -8,12 +8,11 @@
 
 <script>
 export default {
-  fetch() {
+  mounted() {
     if (!this.$auth.loggedIn) {
       this.$nuxt.$router.replace({ path: "/login" });
     }
   },
-  //middleware: "homepageMiddleware",
   methods: {
     logoutButtonClicked() {
       this.$auth.logout();

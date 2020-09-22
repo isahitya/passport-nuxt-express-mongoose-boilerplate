@@ -73,7 +73,7 @@ export default {
     }
   },
   axios: {
-    baseURL: "http://" + "localhost" + ":" + 5000 + "/",
+    baseURL: "http://localhost:5000/",
     credentials: true,
     init(axios) {
       axios.defaults.withCredentials = true;
